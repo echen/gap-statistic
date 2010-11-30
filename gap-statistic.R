@@ -3,6 +3,7 @@
 library(plyr)
 library(ggplot2)
 
+# Given a matrix `data`, where rows are observations and columns are individual dimensions, compute and plot the gap statistic (according to a uniform reference distribution).
 gap_statistic = function(data, min_num_clusters = 1, max_num_clusters = 10, num_reference_bootstraps = 10) {
 	num_clusters = min_num_clusters:max_num_clusters
 	actual_dispersions = maply(num_clusters, function(n) dispersion(data, n))
@@ -18,6 +19,7 @@ gap_statistic = function(data, min_num_clusters = 1, max_num_clusters = 10, num_
 	list(gaps = gaps, gap_stddevs = stddev_ref_dispersions)
 }
 
+# Plot the gaps along with error bars.
 plot_gap_statistic = function(gaps, stddevs, num_clusters) {
 	qplot(num_clusters, gaps, xlab = "# clusters", ylab = "gap", geom = "line", main = "Estimating the number of clusters via the gap statistic") + geom_errorbar(aes(num_clusters, ymin = gaps - stddevs, ymax = gaps + stddevs), size = 0.3, width = 0.2, colour = "darkblue")
 }
