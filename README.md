@@ -1,6 +1,6 @@
 # About
 
-An implementation of the gap statistic algorithm from Tibshirani, Walther, and Hastie's "Estimating the number of clusters in a data set via the gap statistic".
+An implementation of the gap statistic algorithm from Tibshirani, Walther, and Hastie's "Estimating the number of clusters in a data set via the gap statistic". A description of the algorithm can be found [here](http://echen.me/posts/counting-clusters).
 
 # Examples
 
